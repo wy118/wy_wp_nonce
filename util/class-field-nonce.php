@@ -1,9 +1,9 @@
 <?php
 
-namespace Wy_Wp_Nonce;
+namespace Wy_Wp_Nonce\Util;
 
 class Url_Nonce extends Nonce {
-  function create_field ($action = -1, $name = "_wpnonce", $referer = true , $echo = true) {
+  public function create_field ($action = -1, $name = "_wpnonce", $referer = true , $echo = true) {
     $name = esc_attr($name);
     $nonce_field = '<input type="hidden" id="' . $name . '" name="' . $name . '" value="' . $this->create_nonce($action) . '" />';
     if ($referer) {
@@ -15,5 +15,9 @@ class Url_Nonce extends Nonce {
     }
 
     return $nonce_field;
+  }
+  
+  public function verify_nonce ($value, $key) {
+    wp_verify_nonce($value, $key);
   }
 }

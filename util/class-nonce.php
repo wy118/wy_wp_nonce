@@ -1,6 +1,6 @@
 <?php
 
-namespace Wy_Wp_Nonce;
+namespace Wy_Wp_Nonce\Util;
 
 class Nonce {
   private $lifetime_sec = DAY_IN_SECONDS;
@@ -25,7 +25,7 @@ class Nonce {
     $this->lifetime_sec = $lifetime_sec;
   }
   
-  private function nonce_tick() {
+  protected function nonce_tick() {
     return ceil(time() / ($this->lifetime_sec / 2));
   }
 }
