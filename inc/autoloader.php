@@ -7,14 +7,14 @@ function wy_wp_nonce_autoloader($class_name) {
     return;
   }
  
-  $file_parts = explode( '\\', $class_name );
+  $file_parts = explode('\\', $class_name);
     
   $namespace = '';
   for ($i = count($file_parts) - 1; $i > 0; $i--) {
     $current = strtolower( $file_parts[ $i ] );
     $current = str_ireplace( '_', '-', $current );
       
-    if ( count( $file_parts ) - 1 === $i ) {
+    if (count($file_parts) - 1 === $i) {
       $file_name = "class-$current.php";
     } else {
       $namespace = '/' . $current . $namespace;
