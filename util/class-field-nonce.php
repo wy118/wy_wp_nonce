@@ -3,7 +3,7 @@
 namespace Wy_Wp_Nonce\Util;
 
 class Field_Nonce extends Nonce {
-  public function create_field ($action = -1, $name = "_wpnonce", $referer = true , $echo = true) {
+  public function create_field($action = -1, $name = "_wpnonce", $referer = true , $echo = true) {
     $name = esc_attr($name);
     $nonce_field = '<input type="hidden" id="' . $name . '" name="' . $name . '" value="' . $this->create_nonce($action) . '" />';
     if ($referer) {
